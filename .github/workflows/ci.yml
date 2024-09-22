@@ -21,5 +21,8 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Install
+        run: npm install
+
       - name: Run tests
         run: npm run e2e -- --watch=false --no-progress
