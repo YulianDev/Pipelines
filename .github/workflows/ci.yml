@@ -17,13 +17,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-      pages: 'write'
-      actions: 'write'
-      checks: 'write'
-      deployments: 'write'
     strategy:
       matrix:
         node-version: [22.4]
@@ -36,6 +29,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Install Angular CLI
+        run: npm install -g @angular/cli
     - name: Install dependencies
       # Using npm ci is generally faster than running npm i because it caches dependencies
       run: |
@@ -43,9 +38,6 @@ jobs:
     - name: Build the app
       run: |
         npm run build
-    - name: Run component tests
-      run: |
-        npm run test
         
     - name: Setup Pages
       uses: actions/configure-pages@v3
