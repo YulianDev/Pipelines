@@ -1,0 +1,23 @@
+<div>
+  <h2>User Data Form</h2>
+  <form (ngSubmit)="saveData()">
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="userData.name" name="name" required />
+    </label>
+    <br />
+    <label>
+      Email:
+      <input type="email" [(ngModel)]="userData.email" name="email" required />
+    </label>
+    <br />
+    <button type="submit">Save</button>
+  </form>
+  @if(savedData) {
+  <div>
+    <h3>Saved Data:</h3>
+    <p><strong>Name:</strong> {{ savedData.name }}</p>
+    <p><strong>Email:</strong> {{ savedData.email }}</p>
+  </div>
+  }
+</div>

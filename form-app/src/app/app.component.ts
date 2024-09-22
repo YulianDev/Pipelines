@@ -1,0 +1,23 @@
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, FormsModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  userData = {
+    name: '',
+    email: ''
+  };
+  savedData: any;
+
+  saveData() {
+    this.savedData = { ...this.userData };
+    this.userData = { name: '', email: '' }; // Reset form
+  }
+}
