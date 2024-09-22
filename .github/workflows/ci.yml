@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
 
     steps:
       - name: Checkout code
@@ -19,7 +22,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: ${{ matrix.node-version }}
+
       - name: Clear npm cache
         run: npm cache clean --force
 
