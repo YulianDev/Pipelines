@@ -30,7 +30,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install Angular CLI
-        run: npm install -g @angular/cli
+      run: npm install -g @angular/cli
     - name: Install dependencies
       # Using npm ci is generally faster than running npm i because it caches dependencies
       run: |
